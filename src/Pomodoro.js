@@ -3,9 +3,9 @@ import './Pomodoro.css'
 
 function Pomodoro() {
 
-  const [displayTime, setDisplayTime] = React.useState(25 * 60)
-  const [breakTime, setBreakTime] = React.useState(5 * 60)
-  const [sessionTime, setSessionTime] = React.useState(25 * 60)
+  const [displayTime, setDisplayTime] = React.useState(5)
+  const [breakTime, setBreakTime] = React.useState(3)
+  const [sessionTime, setSessionTime] = React.useState(5)
   const [isRunning, setIsRunning] = React.useState(false)
   const [onBreak, setOnBreak] = React.useState(false);
 
@@ -34,15 +34,9 @@ function Pomodoro() {
   }
 
   const controlTime = () => {
-
-    let second = 1000;
-    let date = new Date().getTime();
-    let nextDate = new Date().getTime() + second;
     let breakStart = onBreak;
     if (!isRunning) {
       let interval = setInterval(() => {
-        date = new Date().getTime();
-        if (date > nextDate) {
           setDisplayTime((prev) => {
             if (prev <= 0 && !breakStart) {
               breakStart = true;
@@ -55,9 +49,7 @@ function Pomodoro() {
             }
             return prev - 1;
           });
-          nextDate += second;
-        }
-      }, 10);
+      }, 1000);
       localStorage.clear();
       localStorage.setItem("interval-id", interval);
     }
@@ -98,6 +90,7 @@ function Pomodoro() {
         </div>
       </div>
       <div className="align-center">
+        {onBreak && <h3>It's Break Time!</h3>}
         <h1>{formatTime(displayTime)}</h1>
         <div className="bottom-margin">
           <button className="button" onClick={controlTime}>
