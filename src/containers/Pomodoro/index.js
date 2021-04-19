@@ -61,16 +61,16 @@ function Pomodoro() {
       </div>
       <div className="align-center">
         {onBreak && <h3>It's Break Time!</h3>}
-        <h1><FormatTime time = {displayTime} /></h1>
+        <h1><FormatTime time={displayTime} /></h1>
         <div className="bottom-margin">
-          <Timer 
-          onBreak = {onBreak}
-          isRunning ={isRunning}
-          setDisplayTime={setDisplayTime}
-          setOnBreak={setOnBreak}
-          sessionTime={sessionTime}
-          breakTime={breakTime}
-          setIsRunning={setIsRunning}
+          <Timer
+            onBreak={onBreak}
+            isRunning={isRunning}
+            setDisplayTime={setDisplayTime}
+            setOnBreak={setOnBreak}
+            sessionTime={sessionTime}
+            breakTime={breakTime}
+            setIsRunning={setIsRunning}
           />
         </div>
         <button className="button" onClick={resetTime}>

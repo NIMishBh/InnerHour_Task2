@@ -1,6 +1,6 @@
 import React from 'react'
 
-function index({onBreak,isRunning,setDisplayTime,setOnBreak,sessionTime,breakTime,setIsRunning}) {
+function Timer({onBreak,isRunning,setDisplayTime,setOnBreak,sessionTime,breakTime,setIsRunning}) {
 
   const controlTime = () => {
     let breakStart = onBreak;
@@ -38,4 +38,4 @@ function index({onBreak,isRunning,setDisplayTime,setOnBreak,sessionTime,breakTim
   )
 }
 
-export default index
+export default Timer
